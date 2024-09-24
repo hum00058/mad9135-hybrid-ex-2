@@ -8,9 +8,9 @@ class Lucky {
 
   Lucky() {
     Map<String, String> envVars = Platform.environment;
-    number = int.parse(envVars['MIN'] ?? '0') +
-        random.nextInt(int.parse(envVars['MAX'] ?? '100') -
-            int.parse(envVars['MIN'] ?? '0') +
-            1);
+    final min = int.parse(envVars['MIN'] ?? '0');
+    final max = int.parse(envVars['MAX'] ?? '100');
+
+    number = min + random.nextInt(max - min + 1);
   }
 }
